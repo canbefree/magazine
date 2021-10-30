@@ -3,17 +3,34 @@ module cc
 go 1.17
 
 require (
+	github.com/go-sql-driver/mysql v1.6.0
 	github.com/onsi/ginkgo v1.16.6-0.20211026190233-e6f9f96427d3
 	github.com/onsi/gomega v1.15.0
+	github.com/pelletier/go-toml v1.9.4
+	github.com/spf13/cobra v1.2.1
+	gorm.io/gorm v1.22.1
 )
 
 require (
-	github.com/go-task/slim-sprig v0.0.0-20210107165309-348f09dbbbc0 // indirect
-	github.com/google/pprof v0.0.0-20210407192527-94a9f03dee38 // indirect
-	github.com/pelletier/go-toml v1.9.4 // indirect
-	golang.org/x/net v0.0.0-20210428140749-89ef3d95e781 // indirect
-	golang.org/x/sys v0.0.0-20210423082822-04245dca01da // indirect
-	golang.org/x/text v0.3.6 // indirect
-	golang.org/x/tools v0.0.0-20201224043029-2b0845dc783e // indirect
+	github.com/fsnotify/fsnotify v1.5.1 // indirect
+	github.com/hashicorp/hcl v1.0.0 // indirect
+	github.com/inconshreveable/mousetrap v1.0.0 // indirect
+	github.com/jinzhu/inflection v1.0.0 // indirect
+	github.com/jinzhu/now v1.1.2 // indirect
+	github.com/magiconair/properties v1.8.5 // indirect
+	github.com/mattn/go-sqlite3 v1.14.9 // indirect
+	github.com/mitchellh/mapstructure v1.4.2 // indirect
+	github.com/spf13/afero v1.6.0 // indirect
+	github.com/spf13/cast v1.4.1 // indirect
+	github.com/spf13/jwalterweatherman v1.1.0 // indirect
+	github.com/spf13/pflag v1.0.5 // indirect
+	github.com/spf13/viper v1.9.0 // indirect
+	github.com/subosito/gotenv v1.2.0 // indirect
+	golang.org/x/net v0.0.0-20210503060351-7fd8e65b6420 // indirect
+	golang.org/x/sys v0.0.0-20211025201205-69cdffdb9359 // indirect
+	golang.org/x/text v0.3.7 // indirect
+	gopkg.in/ini.v1 v1.63.2 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
+	gorm.io/driver/mysql v1.1.3 // indirect
+	gorm.io/driver/sqlite v1.2.2 // indirect
 )
