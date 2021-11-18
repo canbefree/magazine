@@ -5,11 +5,22 @@ import (
 	"cc/utils/config"
 	"cc/utils/config/toml"
 	"cc/vars"
+	"os"
+)
+
+const (
+	ENV_MAGAZINE_PATH = "MAGAZINE_PATH"
 )
 
 func init() {
+	//
 	vars.RootPath = utils.GetCurrfilePath()
-	vars.ConfigPath = vars.RootPath + "config/"
+	envRootPath := os.Getenv(ENV_MAGAZINE_PATH)
+	if envRootPath != "" {
+		vars.ConfigPath = envRootPath
+	} else {
+		vars.ConfigPath = vars.RootPath + "config/"
+	}
 
 	// 初始化configManage
 	tomlLoader := toml.NewTomlLoader()

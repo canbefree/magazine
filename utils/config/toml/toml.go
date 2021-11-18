@@ -17,12 +17,12 @@ func NewTomlLoader() *TomlLoader {
 	return &TomlLoader{}
 }
 
-func (l *TomlLoader) SaveConfig(key string, data interface{}) error {
-	config, err := toml.Marshal(data)
+func (l *TomlLoader) SaveConfig(configType string, configData interface{}) error {
+	config, err := toml.Marshal(configData)
 	if err != nil {
 		return err
 	}
-	configPath := GetConfigPath(key)
+	configPath := GetConfigPath(configType)
 	return utils.WriteFile(configPath, config, fs.ModePerm)
 }
 func (l *TomlLoader) LoadConfig(key string, config interface{}) error {
@@ -37,6 +37,6 @@ func (l *TomlLoader) LoadConfig(key string, config interface{}) error {
 	return nil
 }
 
-func GetConfigPath(key string) string {
-	return vars.ConfigPath + key + TOML_SUFFIX
+func GetConfigPath(configType string) string {
+	return vars.ConfigPath + configType + TOML_SUFFIX
 }
