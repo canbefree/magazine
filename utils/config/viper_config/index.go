@@ -1,11 +1,12 @@
 package viper_config
 
 import (
-	"cc/utils"
-	"cc/vars"
 	"errors"
 	"os"
 	"reflect"
+
+	"github.com/canbefree/magazine/utils"
+	"github.com/canbefree/magazine/vars"
 
 	"github.com/pelletier/go-toml"
 	"github.com/spf13/jwalterweatherman"

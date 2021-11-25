@@ -1,9 +1,10 @@
 package toml
 
 import (
-	"cc/utils"
-	"cc/vars"
 	"io/fs"
+
+	"github.com/canbefree/magazine/utils"
+	"github.com/canbefree/magazine/vars"
 
 	"github.com/pelletier/go-toml"
 )

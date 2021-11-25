@@ -7,7 +7,7 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	"cc/utils"
+	"github.com/canbefree/magazine/utils"
 )
 
 var _ = Describe("File", func() {

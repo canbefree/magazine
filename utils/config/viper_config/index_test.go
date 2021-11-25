@@ -5,8 +5,8 @@ import (
 	. "github.com/onsi/gomega"
 	"github.com/prashantv/gostub"
 
-	"cc/utils/config/viper_config"
-	"cc/vars"
+	"github.com/canbefree/magazine/utils/config/viper_config"
+	"github.com/canbefree/magazine/vars"
 )
 
 var _ = Describe("Viper", func() {

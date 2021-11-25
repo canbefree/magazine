@@ -1,9 +1,10 @@
 package mariadb
 
 import (
-	"cc/utils"
 	"io/ioutil"
 	"strings"
+
+	"github.com/canbefree/magazine/utils"
 
 	"gorm.io/gorm"
 )

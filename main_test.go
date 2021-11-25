@@ -1,8 +1,9 @@
 package main_test
 
 import (
-	"cc/vars"
 	"os"
+
+	"github.com/canbefree/magazine/vars"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"

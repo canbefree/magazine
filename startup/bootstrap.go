@@ -1,11 +1,12 @@
 package startup
 
 import (
-	"cc/utils"
-	"cc/utils/config"
-	"cc/utils/config/toml"
-	"cc/vars"
 	"os"
+
+	"github.com/canbefree/magazine/utils"
+	"github.com/canbefree/magazine/utils/config"
+	"github.com/canbefree/magazine/utils/config/toml"
+	"github.com/canbefree/magazine/vars"
 )
 
 const (

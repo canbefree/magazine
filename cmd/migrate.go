@@ -1,11 +1,11 @@
 package cmd
 
 import (
-	"cc/cmd/script/mariadb"
-	"cc/utils"
-	"cc/vars"
 	"errors"
 	"fmt"
+
+	"github.com/canbefree/magazine/utils"
+	"github.com/canbefree/magazine/vars"
 
 	"github.com/spf13/cobra"
 )
@@ -65,7 +65,7 @@ func (c *migrateCommand) DBInit() error {
 	var sqls []string
 	switch c.engine {
 	case "mariadb":
-		sqls = mariadb.RunSqls
+		// sqls = mariadb.RunSqls
 	default:
 		return ErrEngine
 	}

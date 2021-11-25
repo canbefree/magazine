@@ -4,8 +4,8 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	"cc/utils/config/toml"
-	"cc/vars"
+	"github.com/canbefree/magazine/utils/config/toml"
+	"github.com/canbefree/magazine/vars"
 )
 
 var _ = Describe("Toml", func() {

@@ -1,7 +1,7 @@
 package vars
 
 import (
-	"cc/utils/config"
+	"github.com/canbefree/magazine/utils/config"
 )
 
 var (
