@@ -1,4 +1,4 @@
-module cc
+module github.com/canbefree/magazine
 
 go 1.17
 
