@@ -10,11 +10,13 @@ require (
 	github.com/spf13/cobra v1.2.1
 	github.com/spf13/jwalterweatherman v1.1.0
 	github.com/spf13/viper v1.9.0
-	gorm.io/gorm v1.22.1
+	gorm.io/driver/mysql v1.2.0
+	gorm.io/gorm v1.22.3
 )
 
 require (
 	github.com/fsnotify/fsnotify v1.5.1 // indirect
+	github.com/go-sql-driver/mysql v1.6.0 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/inconshreveable/mousetrap v1.0.0 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect

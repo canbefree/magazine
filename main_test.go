@@ -4,6 +4,7 @@ import (
 	"os"
 
 	"github.com/canbefree/magazine/vars"
+	jww "github.com/spf13/jwalterweatherman"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
@@ -11,6 +12,7 @@ import (
 
 var _ = Describe("Main", func() {
 	It("root path exist", func() {
-		Expect(vars.RootPath + string(os.PathSeparator) + "main.go").To(BeAnExistingFile())
+		jww.DEBUG.Printf("vars.RootPath:%v", vars.RootPath)
+		Expect(vars.RootPath + string(os.PathSeparator) + "magazine.go").To(BeAnExistingFile())
 	})
 })

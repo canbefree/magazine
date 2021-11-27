@@ -37,8 +37,7 @@ func NewMigrateCommand() *migrateCommand {
 		cmd: &cobra.Command{
 			Use: "migrate",
 			RunE: func(cmd *cobra.Command, args []string) error {
-				// return cmd.
-				return cc.Up()
+				return cmd.Help()
 			},
 		},
 	}
@@ -50,10 +49,6 @@ func NewMigrateCommand() *migrateCommand {
 		},
 	})
 
-	// Global Flags
-	// TODO  insert here
-
-	// local flags
 	cc.cmd.Flags().BoolVarP(&cc.excute, "excute", "s", false, "excute")
 	cc.cmd.Flags().StringVarP(&cc.output, "output", "o", "./", "output path")
 	cc.cmd.Flags().StringVarP(&cc.engine, "engine", "e", "mariadb", "default mairadb")
@@ -83,10 +78,6 @@ func (c *migrateCommand) DBInit() error {
 		if !utils.FileExists(c.output) {
 			return fmt.Errorf("%v:%v", ErrorFile, c.output)
 		}
-		// 判断是不是文件名
-
-		// if c.output[-1]
-		// utils.WriteFile(c.output)
 	}
 	return nil
 

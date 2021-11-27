@@ -2,6 +2,7 @@ package utils
 
 import (
 	"fmt"
+	"log"
 
 	jww "github.com/spf13/jwalterweatherman"
 )
@@ -12,6 +13,7 @@ func FatalIfError(err error) {
 
 func PanicIfErr(err error) {
 	if err != nil {
-		panic(fmt.Sprintf("err:%v", err.Error()))
+		log.Fatalf("err:%v", err)
 	}
+	panic(fmt.Sprintf("err:%v", err.Error()))
 }

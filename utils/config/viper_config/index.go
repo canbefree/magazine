@@ -42,7 +42,7 @@ func (l *ViperConfig) SaveConfig(configType string, data interface{}) error {
 		t.Elem().NumField()
 	case reflect.Struct:
 		for i := 0; i < t.NumField(); i++ {
-			viper.Set(t.Field(i).Name, v.Field(i).Interface().(interface{}))
+			viper.Set(t.Field(i).Name, v.Field(i).Interface().(string))
 		}
 	case reflect.Map:
 		data, ok := data.(map[string]interface{})

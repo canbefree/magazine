@@ -2,33 +2,26 @@ package mariadb
 
 import (
 	"io/ioutil"
+	"path"
 	"strings"
 
 	"github.com/canbefree/magazine/utils"
-
-	"gorm.io/gorm"
 )
 
-var RunSqls []string
-
-var createTableGun = `
-test 
-
-`
-
-func init() {
-	RunSqls = append(RunSqls, createTableGun)
-}
-
-func RunSQLScript(db *gorm.DB, script string, skipDrop bool) {
-	content, err := ioutil.ReadFile(script)
-	utils.FatalIfError(err)
-	sqls := strings.Split(string(content), ";")
-	for _, sql := range sqls {
-		s := strings.TrimSpace(sql)
-		if s == "" || (skipDrop && strings.Contains(s, "drop")) {
-			continue
+// GetSqls  Convert files in the same directory to strings
+// you can use -d to assign directory
+func GetSqlsFiles() (sqls []string) {
+	files := utils.ListDirRecurrence(utils.GetCallerCodeDir(0), func(s string) bool {
+		if path.Ext(s) == "sql" {
+			return true
 		}
-		db.Exec(s)
+		return false
+	})
+	for _, v := range files {
+		sql, err := ioutil.ReadFile(v)
+		utils.PanicIfErr(err)
+		isql := strings.Split(string(sql), ";")
+		sqls = append(sqls, isql...)
 	}
+	return sqls
 }

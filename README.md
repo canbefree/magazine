@@ -22,4 +22,34 @@ go install magazine
 ginkgo  -r 
 
 
-### 分包操作
+### 缓存分级
+
+
+###
+
+
+#### 容灾措施
+
+
+[key-set]
+[key-value]
+
+
+class Stock(
+	getFormLocal()
+	getFormCache()
+	getFormStorge()
+)
+
+class StockRepo {
+	lock
+	getKeySet()
+	unlock
+}
+
+class Magazine {
+	lock()
+	getKey()
+	unlock
+}
+
