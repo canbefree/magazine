@@ -7,6 +7,6 @@ import (
 )
 
 func Conect_test() {
-	_, err := gorm.Open(mysql.Open("root:123456@(182.254.176.160:3366)/temp"))
+	_, err := gorm.Open(mysql.Open("root:123456@(host:3366)/temp"))
 	utils.PanicIfErr(err)
 }
