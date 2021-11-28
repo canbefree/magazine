@@ -26,18 +26,18 @@ func (l *TomlLoader) SaveConfig(configType string, configData interface{}) error
 	configPath := GetConfigPath(configType)
 	return utils.WriteFile(configPath, config, fs.ModePerm)
 }
-func (l *TomlLoader) LoadConfig(key string, config interface{}) error {
+func (l *TomlLoader) LoadConfig(key string, config interface{}) (interface{}, error) {
 	configPath := GetConfigPath(key)
 	data, err := utils.ReadFile(configPath)
 	if err != nil {
-		return err
+		return nil, err
 	}
-	jww.TRACE.Println(&config)
-	if err := toml.Unmarshal(data, &config); err != nil {
-		return err
+	jww.TRACE.Println(config)
+	if err := toml.Unmarshal(data, config); err != nil {
+		return nil, err
 	}
-	jww.TRACE.Println(&config)
-	return nil
+	jww.TRACE.Println(config)
+	return config, nil
 }
 
 func GetConfigPath(configType string) string {

@@ -20,5 +20,5 @@ func NewConfigManage(loader Loader) *ConfigManage {
 // Loader is 配置解析,支持 toml 等
 type Loader interface {
 	SaveConfig(key string, data interface{}) error
-	LoadConfig(key string, config interface{}) error
+	LoadConfig(key string, config interface{}) (interface{}, error)
 }

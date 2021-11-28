@@ -22,7 +22,7 @@ type migrateCommand struct {
 	//
 	output string
 	// 执行
-	excute bool
+	write bool
 	//
 	engine string
 	// define you flags here
@@ -44,14 +44,15 @@ func NewMigrateCommand() *migrateCommand {
 		},
 	}
 
-	cc.baseCommand.cmd.AddCommand(&cobra.Command{
-		Use: "dbinit",
-		RunE: func(cmd *cobra.Command, args []string) error {
-			return cc.DBInit()
-		},
-	})
+	cc.baseCommand.cmd.AddCommand(
+		&cobra.Command{
+			Use: "dbinit",
+			RunE: func(cmd *cobra.Command, args []string) error {
+				return cc.DBInit()
+			},
+		})
 
-	cc.cmd.Flags().BoolVarP(&cc.excute, "excute", "s", false, "excute")
+	cc.cmd.PersistentFlags().BoolVarP(&cc.write, "write", "w", false, "write int db")
 	cc.cmd.Flags().StringVarP(&cc.output, "output", "o", "./", "output path")
 	cc.cmd.Flags().StringVarP(&cc.engine, "engine", "e", "mariadb", "default mairadb")
 
@@ -68,7 +69,7 @@ func (c *migrateCommand) DBInit() error {
 		return ErrEngine
 	}
 	//
-	if c.excute {
+	if c.write {
 		switch c.engine {
 		case "mariadb":
 			for _, v := range sqls {

@@ -36,7 +36,10 @@ func init() {
 	vars.ConfigManage = config.NewConfigManage(tomlLoader)
 	jww.TRACE.Printf("%v", vars.ConfigMap)
 	for k, v := range vars.ConfigMap {
-		vars.ConfigManage.Loader.LoadConfig(k, v)
+		var err error
+		v, err = vars.ConfigManage.Loader.LoadConfig(k, v)
+		vars.ConfigMap[k] = v
+		utils.PanicIfErr(err)
 	}
 
 	// 初始化DB
