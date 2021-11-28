@@ -5,8 +5,8 @@ import (
 
 	"github.com/canbefree/magazine/utils"
 	"github.com/canbefree/magazine/vars"
-
 	"github.com/pelletier/go-toml"
+	jww "github.com/spf13/jwalterweatherman"
 )
 
 const TOML_SUFFIX = ".toml"
@@ -32,12 +32,17 @@ func (l *TomlLoader) LoadConfig(key string, config interface{}) error {
 	if err != nil {
 		return err
 	}
+	jww.TRACE.Println(&config)
 	if err := toml.Unmarshal(data, &config); err != nil {
 		return err
 	}
+	jww.TRACE.Println(&config)
 	return nil
 }
 
 func GetConfigPath(configType string) string {
+	if vars.ConfigPath[len(vars.ConfigPath)-1] != '/' {
+		return vars.ConfigPath + "/" + configType + TOML_SUFFIX
+	}
 	return vars.ConfigPath + configType + TOML_SUFFIX
 }

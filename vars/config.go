@@ -7,17 +7,17 @@ type Setting struct {
 	DefaultMagazineSize int64 `json:"default_magazine_size,omitempty"` //默认弹夹数量
 }
 
-type RedisConfig struct {
+type RedisConfigSetting struct {
 	Host string `json:"host,omitempty"`
 	Port string `json:"port,omitempty"`
 	Auth string `json:"auth,omitempty"`
 }
 
-type SqliteConfig struct {
+type SqliteConfigSetting struct {
 	DBPath string `json:"db_path,omitempty"`
 }
 
-type MysqlConfig struct {
+type MysqlConfigSetting struct {
 	DSN string `json:"dsn,omitempty"`
 }
 
@@ -25,7 +25,7 @@ var ConfigMap map[string]interface{} = map[string]interface{}{
 	"setting": &Setting{
 		DefaultMagazineSize: 100,
 	},
-	"redis_config": &RedisConfig{},
-	"sqlite":       &SqliteConfig{},
-	"mysql_config": &MysqlConfig{},
+	"redis_config": &RedisConfigSetting{},
+	"sqlite":       &SqliteConfigSetting{},
+	"mysql_config": &MysqlConfigSetting{},
 }

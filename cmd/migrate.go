@@ -4,10 +4,12 @@ import (
 	"errors"
 	"fmt"
 
+	"github.com/canbefree/magazine/cmd/mariadb"
 	"github.com/canbefree/magazine/utils"
 	"github.com/canbefree/magazine/vars"
 
 	"github.com/spf13/cobra"
+	jww "github.com/spf13/jwalterweatherman"
 )
 
 var (
@@ -60,7 +62,8 @@ func (c *migrateCommand) DBInit() error {
 	var sqls []string
 	switch c.engine {
 	case "mariadb":
-		// sqls = mariadb.RunSqls
+		sqls = mariadb.GetSqlsFiles()
+		jww.TRACE.Printf("%#v", sqls)
 	default:
 		return ErrEngine
 	}
