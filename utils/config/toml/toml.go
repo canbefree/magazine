@@ -41,6 +41,10 @@ func (l *TomlLoader) LoadConfig(key string, config interface{}) (interface{}, er
 }
 
 func GetConfigPath(configType string) string {
+	if vars.ConfigPath == "" {
+		// some test suite not init config path
+		vars.ConfigPath = "."
+	}
 	if vars.ConfigPath[len(vars.ConfigPath)-1] != '/' {
 		return vars.ConfigPath + "/" + configType + TOML_SUFFIX
 	}

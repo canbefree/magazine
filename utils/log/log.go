@@ -2,15 +2,22 @@ package log
 
 import (
 	"context"
-	"fmt"
+
+	jww "github.com/spf13/jwalterweatherman"
 )
 
-//  待完善的日志器 TODO
-
-func Info(ctx context.Context, msg string) {
-	fmt.Println(msg)
+func Tracef(ctx context.Context, format string, v ...interface{}) {
+	jww.TRACE.Printf(format, v...)
 }
 
-func Error(ctx context.Context, msg string) {
-	fmt.Println(msg)
+func Infof(ctx context.Context, format string, v ...interface{}) {
+	jww.INFO.Printf(format, v...)
+}
+
+func Errorf(ctx context.Context, format string, v ...interface{}) {
+	jww.ERROR.Printf(format, v...)
+}
+
+func init() {
+	jww.SetStdoutThreshold(jww.LevelTrace)
 }

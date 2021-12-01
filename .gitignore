@@ -1,2 +1,2 @@
 .config
-core/repo/repo_local.go
+internel/repo/repo_local.go

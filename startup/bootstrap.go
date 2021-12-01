@@ -1,7 +1,6 @@
 package startup
 
 import (
-	"log"
 	"os"
 	"path"
 
@@ -19,8 +18,6 @@ const (
 )
 
 func init() {
-	jww.SetStdoutThreshold(jww.LevelTrace)
-	jww.SetFlags(log.Llongfile)
 	envRootPath := os.Getenv(ENV_MAGAZINE_PATH)
 	if envRootPath != "" {
 		vars.RootPath = envRootPath
@@ -30,7 +27,8 @@ func init() {
 
 	// TODO 目前为了方便调试，将目录设置为编译目录 ./config
 	vars.ConfigPath = path.Dir(utils.GetCallerCodeDir(1)) + "/.config"
-	jww.TRACE.Printf("vars.ConfigPath init :%v", vars.ConfigPath)
+	// jww.TRACE.Printf("vars.ConfigPath init :%v", vars.ConfigPath)
+
 	// 初始化configManage
 	tomlLoader := toml.NewTomlLoader()
 	vars.ConfigManage = config.NewConfigManage(tomlLoader)
@@ -46,5 +44,6 @@ func init() {
 	var err error
 	dsn := vars.ConfigMap["mysql_config"].(*vars.MysqlConfigSetting).DSN
 	vars.DB, err = gorm.Open(mysql.Open(dsn))
+
 	utils.PanicIfErr(err)
 }
