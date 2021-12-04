@@ -34,7 +34,7 @@ CREATE TABLE `m_inventory_tran` (
 
 JSON Sample
 -------------------------------------
-{    "id": 55,    "changet_type": 6,    "change_qty": 13,    "tran_id": 63,    "tran_status": 94,    "created_at": "2159-10-05T07:16:56.910260422+08:00",    "updated_at": "2100-05-01T06:18:10.602877712+08:00",    "remark": "kBoXkNbNyKjnMATIQKNDhZmvd"}
+{    "id": 11,    "changet_type": 59,    "change_qty": 32,    "tran_id": 97,    "tran_status": 71,    "created_at": "2169-10-19T15:47:30.251331361+08:00",    "updated_at": "2058-08-28T22:12:18.709260626+08:00",    "remark": "LAotCSgbCjqXNnAhrVLkgfdgG"}
 
 
 Comments

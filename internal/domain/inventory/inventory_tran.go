@@ -1,4 +1,4 @@
-package internel
+package inventory
 
 import (
 	"context"

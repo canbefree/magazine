@@ -1,4 +1,4 @@
-package repo_dao
+package {{.daoPackageName}}
 
 import (
 	"context"
@@ -9,51 +9,52 @@ import (
 	"gorm.io/gorm"
 )
 
+type DAO struct{
+	DB *gorm.DB
+}
+
 // BuildInfo is used to define the application build info, and inject values into via the build process.
 type BuildInfo struct {
 
-	// BuildDate date string of when build was performed filled in by -X compile flag
-	BuildDate string
+    // BuildDate date string of when build was performed filled in by -X compile flag
+	BuildDate    string
 
 	// LatestCommit date string of when build was performed filled in by -X compile flag
 	LatestCommit string
 
 	// BuildNumber date string of when build was performed filled in by -X compile flag
-	BuildNumber string
+	BuildNumber  string
 
 	// BuiltOnIP date string of when build was performed filled in by -X compile flag
-	BuiltOnIP string
+	BuiltOnIP    string
 
 	// BuiltOnOs date string of when build was performed filled in by -X compile flag
-	BuiltOnOs string
+	BuiltOnOs    string
 
 	// RuntimeVer date string of when build was performed filled in by -X compile flag
-	RuntimeVer string
+	RuntimeVer   string
 }
 
 type LogSql func(ctx context.Context, sql string)
 
 var (
-	// ErrNotFound error when record not found
-	ErrNotFound = fmt.Errorf("record Not Found")
+    // ErrNotFound error when record not found
+	ErrNotFound  = fmt.Errorf("record Not Found")
 
 	// ErrUnableToMarshalJSON error when json payload corrupt
-	ErrUnableToMarshalJSON = fmt.Errorf("json payload corrupt")
+    ErrUnableToMarshalJSON  = fmt.Errorf("json payload corrupt")
 
-	// ErrUpdateFailed error when update fails
-	ErrUpdateFailed = fmt.Errorf("db update error")
+    // ErrUpdateFailed error when update fails
+	ErrUpdateFailed  = fmt.Errorf("db update error")
 
 	// ErrInsertFailed error when insert fails
-	ErrInsertFailed = fmt.Errorf("db insert error")
+	ErrInsertFailed  = fmt.Errorf("db insert error")
 
 	// ErrDeleteFailed error when delete fails
-	ErrDeleteFailed = fmt.Errorf("db delete error")
+	ErrDeleteFailed  = fmt.Errorf("db delete error")
 
 	// ErrBadParams error when bad params passed in
-	ErrBadParams = fmt.Errorf("bad params error")
-
-	// DB reference to database
-	DB *gorm.DB
+	ErrBadParams  = fmt.Errorf("bad params error")
 
 	// AppBuildInfo reference to build info
 	AppBuildInfo *BuildInfo
@@ -61,6 +62,8 @@ var (
 	// Logger function that will be invoked before executing sql
 	Logger LogSql
 )
+
+
 
 // Copy a src struct into a destination struct
 func Copy(dst interface{}, src interface{}) error {
@@ -84,6 +87,7 @@ func Copy(dst interface{}, src interface{}) error {
 
 	return nil
 }
+
 
 func isZeroOfUnderlyingType(x interface{}) bool {
 	return x == nil || reflect.DeepEqual(x, reflect.Zero(reflect.TypeOf(x)).Interface())
